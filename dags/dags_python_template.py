@@ -19,8 +19,8 @@ with DAG(
         task_id="python_t1",
         python_callable=python_function,
         op_kwargs={
-            "start_date": "{{ ds }}",
-            "end_date": "{{ next_ds }}",
+            "start_date": "{{ data_interval_start }}",
+            "end_date": "{{ data_interval_end }}",
         },
     )
 
@@ -30,5 +30,5 @@ with DAG(
         print(kwargs.get("ds"))
         print(kwargs.get("next_ds"))
         print(str(kwargs.get("data_interval_start")))
-        print(str(kwargs.get("data_interval_start")))
+        print(str(kwargs.get("data_interval_end")))
         print(str(kwargs.get("ti")))
